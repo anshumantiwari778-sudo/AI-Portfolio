@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Namita Tiwari — Mathematics · Cryptography · AI & Data Science</title>
+<meta name="description" content="Professor of Mathematics and Dean (R&D) at CSJMU Kanpur. Research in elliptic curve cryptography and post-quantum schemes; founder of the AI & Data Science Forum for students.">
+
+<!-- ============================================================
+     EDIT ME: Fonts — swap the Google Fonts link below if you want
+     a different typeface pairing.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN TOKENS — change colors/fonts here and they apply
+     everywhere on the page.
+     ============================================================ */
+  :root{
+    --cream:      #F6F2EA;
+    --cream-2:    #EFE9DC;
+    --ink:        #211E1A;
+    --ink-soft:   #5C574E;
+    --gold:       #A9793C;
+    --gold-soft:  #D9C6A1;
+    --navy:       #263248;
+    --navy-soft:  #45536B;
+    --line:       #DBD3C2;
+    --white:      #FFFFFF;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body:    'Inter', -apple-system, sans-serif;
+    --font-mono:    'Space Mono', monospace;
+
+    --maxw: 1120px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:18px;
+  }
+  .eyebrow .num{ color:var(--ink-soft); }
+  .eyebrow .rule{ flex:1; max-width:48px; height:1px; background:var(--line); }
+
+  h1,h2,h3{ font-family:var(--font-display); font-weight:500; letter-spacing:-.01em; }
+
+  /* ---------------- HEADER ---------------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(246,242,234,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:14px; }
+  .brand-mark{
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:14px;
+    flex-shrink:0;
+  }
+  .brand-name{ font-family:var(--font-display); font-size:17px; }
+  .brand-role{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-top:2px; }
+
+  nav.desktop-nav{ display:flex; gap:32px; align-items:center; }
+  nav.desktop-nav a{
+    font-size:14px; color:var(--ink-soft); transition:color .2s;
+  }
+  nav.desktop-nav a:hover{ color:var(--gold); }
+  .nav-cta{
+    border:1px solid var(--ink); padding:9px 18px; border-radius:2px;
+    font-size:13px !important; color:var(--ink) !important;
+  }
+  .nav-cta:hover{ background:var(--ink); color:var(--cream) !important; }
+
+  .menu-btn{ display:none; background:none; border:none; cursor:pointer; }
+  .menu-btn span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; }
+
+  .mobile-nav{
+    display:none; flex-direction:column;
+    border-top:1px solid var(--line);
+    background:var(--cream);
+  }
+  .mobile-nav.open{ display:flex; }
+  .mobile-nav a{ padding:16px 28px; border-bottom:1px solid var(--line); font-size:15px; }
+
+  @media (max-width:860px){
+    nav.desktop-nav{ display:none; }
+    .menu-btn{ display:block; }
+  }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position:relative;
+    padding:88px 0 96px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(169,121,60,.14), transparent 60%),
+      var(--cream);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;
+  }
+  .hero-eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold-soft); background:var(--navy); display:inline-block;
+    padding:6px 14px; border-radius:2px; margin-bottom:26px; color:#EFE3CB;
+  }
+  .hero h1{
+    font-size:clamp(34px,4.6vw,56px);
+    line-height:1.08;
+    margin-bottom:24px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--gold); }
+  .hero p.lead{
+    font-size:17px; color:var(--ink-soft); max-width:520px; margin-bottom:34px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px; }
+  .btn{
+    font-family:var(--font-body); font-weight:600; font-size:14px;
+    padding:14px 26px; border-radius:2px; display:inline-block; transition:all .2s;
+  }
+  .btn-primary{ background:var(--ink); color:var(--cream); }
+  .btn-primary:hover{ background:var(--gold); }
+  .btn-secondary{ border:1px solid var(--ink); color:var(--ink); }
+  .btn-secondary:hover{ border-color:var(--gold); color:var(--gold); }
+
+  .hero-badges{ display:flex; gap:22px; flex-wrap:wrap; font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); }
+  .hero-badges a:hover{ color:var(--gold); }
+
+  .hero-portrait{ position:relative; }
+  .hero-portrait-frame{
+    border-radius:4px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 30px 60px -20px rgba(38,50,72,.25);
+  }
+  .hero-portrait img{ width:100%; height:520px; object-fit:cover; object-position:top center; }
+  .hero-portrait-cap{
+    margin-top:14px; font-family:var(--font-display); font-style:italic;
+    color:var(--ink-soft); font-size:14px;
+  }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-portrait{ order:-1; }
+    .hero-portrait img{ height:340px; }
+  }
+
+  /* ---------------- SECTION shells ---------------- */
+  section{ padding:96px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(26px,3.4vw,38px); }
+  .section-head h2 em{ font-style:italic; color:var(--gold); }
+
+  /* ---------------- PROFILE ---------------- */
+  .profile-grid{ display:grid; grid-template-columns:1.3fr .9fr; gap:64px; }
+  .profile-grid p{ color:var(--ink-soft); margin-bottom:18px; font-size:15.5px; }
+  .profile-grid p:last-of-type{ margin-bottom:0; }
+  .bio-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:26px; }
+  .bio-tags span{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    border:1px solid var(--line); padding:7px 13px; border-radius:20px; color:var(--ink-soft);
+  }
+
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px 24px; align-content:start; }
+  .stat{ border-top:1px solid var(--line); padding-top:16px; }
+  .stat .num{ font-family:var(--font-display); font-size:38px; color:var(--navy); }
+  .stat .label{ font-size:13px; color:var(--ink-soft); margin-top:4px; }
+
+  @media (max-width:860px){ .profile-grid{ grid-template-columns:1fr; gap:40px; } }
+
+  /* ---------------- RESEARCH PILLARS ---------------- */
+  .pillars{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .pillar{ background:var(--cream); padding:38px 34px; }
+  .pillar .pn{ font-family:var(--font-mono); color:var(--gold); font-size:13px; margin-bottom:16px; display:block; }
+  .pillar h3{ font-size:19px; margin-bottom:12px; }
+  .pillar p{ font-size:14.5px; color:var(--ink-soft); }
+  @media (max-width:640px){ .pillars{ grid-template-columns:1fr; } }
+
+  /* ---------------- AI & DS FORUM (signature section) ---------------- */
+  .forum{
+    background:var(--navy);
+    color:#EDE7D8;
+    border-radius:6px;
+    padding:64px 44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .forum::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(217,198,161,.14), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(217,198,161,.10), transparent 45%);
+    pointer-events:none;
+  }
+  .forum-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; margin-bottom:48px; position:relative; }
+  .forum-top .eyebrow{ color:var(--gold-soft); }
+  .forum-top .eyebrow .num{ color:#8C93A2; }
+  .forum-top .eyebrow .rule{ background:#3C4A63; }
+  .forum h2{ color:#FBF7EE; font-size:clamp(24px,3vw,32px); max-width:480px; }
+  .forum h2 em{ color:var(--gold-soft); font-style:italic; }
+  .forum-desc{ max-width:340px; font-size:14.5px; color:#B9C0CE; }
+
+  .forum-stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#3C4A63; border:1px solid #3C4A63; border-radius:4px; overflow:hidden;
+    position:relative; margin-bottom:40px;
+  }
+  .fstat{ background:var(--navy); padding:26px 20px; text-align:center; }
+  .fstat .num{ font-family:var(--font-display); font-size:32px; color:var(--gold-soft); }
+  .fstat .label{ font-size:12px; color:#9AA3B4; margin-top:4px; }
+  @media (max-width:640px){ .forum-stats{ grid-template-columns:1fr 1fr; } }
+
+  .forum-tags{ display:flex; gap:10px; flex-wrap:wrap; position:relative; margin-bottom:28px; }
+  .forum-tags span{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    border:1px solid #3C4A63; padding:7px 13px; border-radius:20px; color:#C7CCD8;
+  }
+  .forum .btn-primary{ background:var(--gold-soft); color:var(--navy); position:relative; }
+  .forum .btn-primary:hover{ background:#EFE3CB; }
+
+  /* ---------------- PUBLICATIONS ---------------- */
+  .pub{ padding:26px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:70px 1fr; gap:24px; }
+  .pub:last-child{ border-bottom:1px solid var(--line); }
+  .pub .year{ font-family:var(--font-mono); color:var(--gold); font-size:14px; }
+  .pub h3{ font-size:17px; margin-bottom:8px; font-weight:500; }
+  .pub .meta{ font-size:13.5px; color:var(--ink-soft); }
+  .pub .tagline{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--navy-soft); margin-top:10px; display:inline-block; }
+  @media (max-width:640px){ .pub{ grid-template-columns:1fr; gap:8px; } }
+
+  /* ---------------- CONTACT / CTA ---------------- */
+  .contact{ text-align:center; }
+  .contact h2{ font-size:clamp(26px,4vw,42px); max-width:720px; margin:0 auto 28px; }
+  .contact h2 em{ font-style:italic; color:var(--gold); }
+  .contact .email{ font-family:var(--font-display); font-size:22px; color:var(--navy); border-bottom:1px solid var(--gold-soft); padding-bottom:4px; }
+  .contact-actions{ margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  /* ---------------- FOOTER ---------------- */
+  footer{ background:var(--ink); color:#C9C4B7; padding:64px 0 28px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+  footer h4{ font-family:var(--font-display); color:#F1EEE6; font-size:16px; margin-bottom:14px; }
+  footer p{ font-size:13.5px; color:#9C978A; max-width:320px; }
+  footer ul li{ margin-bottom:10px; font-size:13.5px; }
+  footer ul li a:hover{ color:var(--gold-soft); }
+  .footer-bottom{ border-top:1px solid #3A362C; padding-top:24px; font-size:12.5px; color:#8A8577; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  @media (max-width:720px){ .footer-grid{ grid-template-columns:1fr; } }
+
+  /* reveal-on-scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — edit nav links / name here
+     ============================================================ -->
+<header>
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <div class="brand-mark">NT</div>
+      <div>
+        <div class="brand-name">Prof. Namita Tiwari</div>
+        <div class="brand-role">Mathematics · CSJMU Kanpur</div>
+      </div>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#top">Home</a>
+      <a href="#profile">About</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#events">Events</a>
+      <a href="#team">Team</a>
+      <a href="login.html" class="nav-cta">Login</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#profile">About</a>
+    <a href="#research">Research</a>
+    <a href="#forum">AI &amp; DS Forum</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top" style="border-bottom:1px solid var(--line);">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow">Professor · Dean, Research &amp; Development</span>
+      <h1>Cryptography for a secure future — <em>and the students building AI's next chapter.</em></h1>
+      <p class="lead">
+        Professor, Department of Mathematics, School of Basic Sciences, Chhatrapati Shahu Ji Maharaj
+        University (CSJMU), Kanpur. Thirteen years researching elliptic curves and post-quantum
+        signatures — and founder of the AI &amp; Data Science Forum, mentoring the students who'll carry it forward.
+      </p>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-primary">Explore research</a>
+        <a href="#forum" class="btn btn-secondary">AI &amp; DS Forum</a>
+      </div>
+      <div class="hero-badges">
+        <a href="https://orcid.org/0000-0002-5232-5590" target="_blank" rel="noopener">ORCID 0000-0002-5232-5590</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57194700845" target="_blank" rel="noopener">SCOPUS 57194700845</a>
+        <span>VIDWAN 256735</span>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="hero-portrait-frame">
+        <!-- EDIT ME: swap this src for her latest photo -->
+        <img src="https://namitatiwari.lovable.app/assets/profile-C7ya5d4Y.png" alt="Portrait of Prof. Namita Tiwari">
+      </div>
+      <div class="hero-portrait-cap">Prof. Namita Tiwari — Professor of Mathematics, CSJMU Kanpur</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROFILE / ABOUT
+     ============================================================ -->
+<section id="profile">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">01</span><span class="rule"></span>Profile</div>
+    <div class="profile-grid">
+      <div class="reveal">
+        <h2 style="font-size:clamp(24px,3vw,30px); margin-bottom:22px;">A mathematician building the <em>proofs behind trust</em> — and the mentor behind a new generation of AI students.</h2>
+        <p>
+          Prof. Namita Tiwari is Professor in the Department of Mathematics, School of Basic Sciences,
+          and Dean (Research &amp; Development) at Chhatrapati Shahu Ji Maharaj University, Kanpur. She
+          holds a Ph.D. in Cryptography from MNNIT Allahabad and an M.Sc. in Pure Mathematics from IIT Kanpur.
+        </p>
+        <p>
+          Her research spans pairing-free proxy signature families over elliptic curves, multivariate
+          and lattice-based post-quantum candidates, and the security of biometric and blockchain
+          systems — published in Elsevier, Springer, Wiley and IEEE venues, and protected across
+          eleven patents.
+        </p>
+        <p>
+          Alongside her research, she founded and leads the <strong>AI &amp; Data Science Forum</strong>,
+          a student-facing initiative that has run 120+ lectures and workshops guiding 500+ students
+          into applied AI, machine learning and data science.
+        </p>
+        <div class="bio-tags">
+          <span>AI Expert</span><span>Researcher</span><span>Mentor</span><span>Educator</span>
+        </div>
+      </div>
+      <div class="stat-grid reveal">
+        <div class="stat"><div class="num">60+</div><div class="label">Journal &amp; conference papers</div></div>
+        <div class="stat"><div class="num">11</div><div class="label">Patents filed / published</div></div>
+        <div class="stat"><div class="num">6</div><div class="label">Ph.D. scholars supervised</div></div>
+        <div class="stat"><div class="num">13+</div><div class="label">Years of teaching &amp; research</div></div>
+        <div class="stat"><div class="num">500+</div><div class="label">Students mentored (AI &amp; DS Forum)</div></div>
+        <div class="stat"><div class="num">120+</div><div class="label">Lectures &amp; workshops delivered</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESEARCH PILLARS
+     ============================================================ -->
+<section id="research">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">02</span><span class="rule"></span>Research pillars</div>
+    <div class="section-head reveal">
+      <h2>Four questions that shape the lab.</h2>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pn">01</span>
+        <h3>Elliptic Curve Cryptography</h3>
+        <p>Pairing-free proxy, blind and group signature schemes built on ECDLP, with provable security in the random oracle model.</p>
+      </div>
+      <div class="pillar">
+        <span class="pn">02</span>
+        <h3>Digital Signatures</h3>
+        <p>Proxy, multi-proxy, designated-verifier, fail-stop and collective signature families — design, cryptanalysis and repair.</p>
+      </div>
+      <div class="pillar">
+        <span class="pn">03</span>
+        <h3>Post-Quantum Cryptography</h3>
+        <p>Multivariate systems (HFE, Matsumoto–Imai, Oil-Vinegar), NTRU lattices and hash-based schemes as NIST-track candidates.</p>
+      </div>
+      <div class="pillar">
+        <span class="pn">04</span>
+        <h3>AI, Biometrics &amp; Security</h3>
+        <p>Cancelable iris cryptosystems, ear-and-palmprint multimodal authentication, and drift-aware intrusion detection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AI & DS FORUM — signature section (from the reference forum site)
+     ============================================================ -->
+<section id="forum">
+  <div class="wrap">
+    <div class="forum reveal">
+      <div class="forum-top">
+        <div>
+          <div class="eyebrow"><span class="num">03</span><span class="rule"></span>AI &amp; Data Science Forum</div>
+          <h2>Empowering students to explore the amazing world of <em>Artificial Intelligence &amp; Data Science.</em></h2>
+        </div>
+        <p class="forum-desc">
+          A student-first learning community founded by Prof. Namita Tiwari — expert lectures, hands-on
+          projects and workshops that turn curiosity into real AI and Data Science skills.
+        </p>
+      </div>
+      <div class="forum-stats">
+        <div class="fstat"><div class="num">120+</div><div class="label">Lectures</div></div>
+        <div class="fstat"><div class="num">500+</div><div class="label">Students</div></div>
+        <div class="fstat"><div class="num">50+</div><div class="label">Innovations</div></div>
+        <div class="fstat"><div class="num">15+</div><div class="label">Workshops</div></div>
+      </div>
+      <div class="forum-tags">
+        <span>AI Expert</span><span>Researcher</span><span>Mentor</span><span>Educator</span>
+      </div>
+      <!-- EDIT ME: point this at the actual forum site URL -->
+      <a href="#" class="btn btn-primary">Visit the AI &amp; DS Forum →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SELECTED PUBLICATIONS
+     ============================================================ -->
+<section id="publications">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">04</span><span class="rule"></span>Selected publications</div>
+    <div class="section-head reveal">
+      <h2>Recent peer-reviewed work.</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="pub">
+        <div class="year">2026</div>
+        <div>
+          <h3>A Novel RSA Cryptosystem Variant Using Chaotic Exponent Selection and Ciphertext Blinding</h3>
+          <div class="meta">A. Fatima, N. Tiwari · International Journal of Mathematical Sciences and Computing (IJMSC)</div>
+          <span class="tagline">Journal</span>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2026</div>
+        <div>
+          <h3>Exploring Approaches for Curve Similarity: A Comprehensive Review</h3>
+          <div class="meta">S. Mishra, N. Tiwari · International Journal of Mathematical Sciences and Computing (IJMSC)</div>
+          <span class="tagline">Journal</span>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2025</div>
+        <div>
+          <h3>Identity Based Proxy Blind Signature Scheme Using NTRU Lattices</h3>
+          <div class="meta">S. Singh, S. Rawal, S. Padhye, N. Tiwari · Information and Computation, Elsevier</div>
+          <span class="tagline">Journal</span>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2025</div>
+        <div>
+          <h3>Triad Analysis by Design, Security, and Evolution of HFE, MI, and Oil-Vinegar Cryptosystems</h3>
+          <div class="meta">R. Vishwakarma, N. Tiwari · International Journal of Applied Mathematics</div>
+          <span class="tagline">Journal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT / CTA
+     ============================================================ -->
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;"><span class="num">05</span><span class="rule"></span>Collaborate</div>
+    <h2>Open to doctoral scholars, joint projects, keynote invitations — <em>and student mentors-in-the-making.</em></h2>
+    <a class="email" href="mailto:namitatiwari@csjmu.ac.in">namitatiwari@csjmu.ac.in</a>
+    <div class="contact-actions">
+      <a href="mailto:namitatiwari@csjmu.ac.in" class="btn btn-primary">Email directly</a>
+      <a href="#forum" class="btn btn-secondary">Visit AI &amp; DS Forum</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Prof. Namita Tiwari</h4>
+        <p>Professor, Department of Mathematics, School of Basic Sciences. Dean, Research &amp; Development, CSJMU Kanpur. Founder, AI &amp; Data Science Forum.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#profile">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#forum">AI &amp; DS Forum</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Scholarly profiles</h4>
+        <ul>
+          <li><a href="https://orcid.org/0000-0002-5232-5590" target="_blank" rel="noopener">ORCID · 0000-0002-5232-5590</a></li>
+          <li><a href="https://www.scopus.com/authid/detail.uri?authorId=57194700845" target="_blank" rel="noopener">Scopus Author ID · 57194700845</a></li>
+          <li><a href="https://scholar.google.com/citations?user=HPJdmZkAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li>Vidwan ID · 256735</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Prof. Namita Tiwari · Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur</span>
+      <span>Portfolio crafted for AI &amp; Data Science Forum</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

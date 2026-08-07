@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Presentations</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+color:white;
+padding:25px;
+text-align:center;
+}
+
+.search{
+width:90%;
+max-width:500px;
+display:block;
+margin:25px auto;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+.container{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+color:#2563EB;
+margin-bottom:10px;
+}
+
+.card p{
+margin:8px 0;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+background:#2563EB;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin-right:10px;
+}
+
+.btn:hover{
+background:#7C3AED;
+}
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1E3A8A;
+padding:15px 30px;
+}
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.nav-links a:hover{
+opacity:0.8;
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar">
+
+<div class="logo">🤖 AI & DS Forum</div>
+
+<div class="nav-links">
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="presentations.html">📚 Presentations</a>
+<a href="projects.html">💻 Projects</a>
+<a href="gallery.html">🖼 Gallery</a>
+<a href="events.html">📅 Events</a>
+<a href="team.html">👥 Team</a>
+<a href="announcements.html">📢 Announcements</a>
+<a href="login.html">🚪 Logout</a>
+</div>
+
+</nav>
+<header>
+<h1>📚 Student Presentation Repository</h1>
+
+<p>
+AI & Data Science Forum Management Portal
+</p>
+</header>
+<section class="overview">
+
+<h2>📊 Presentation Overview</h2>
+
+<div class="overview-grid">
+
+<div class="overview-card">
+
+<h3>4</h3>
+
+<p>Total Presentations</p>
+
+</div>
+
+<div class="overview-card">
+
+<h3>2</h3>
+
+<p>AI Topics</p>
+
+</div>
+
+<div class="overview-card">
+
+<h3>2</h3>
+
+<p>ML Topics</p>
+
+</div>
+
+<div class="overview-card">
+
+<h3>4</h3>
+
+<p>Students</p>
+
+</div>
+
+</div>
+
+</section>
+<input class="search" type="text" placeholder="Search presentations...">
+
+<div class="container">
+
+<div class="container">
+
+<div class="card">
+<img src="assets/images/history-ai-thumbnail.jpeg" class="ppt-image" alt="History of AI">
+<h2>📜 History of Artificial Intelligence</h2>
+
+<span class="status completed">✅ Completed</span>
+
+<br>
+
+<span class="badge">Artificial Intelligence</span>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p><strong>👨‍🎓 Student:</strong> Anshuman Tiwari</p>
+
+<p><strong>📅 Date:</strong> 3 August 2026</p>
+
+<p><strong>⭐ Difficulty:</strong> Beginner</p>
+
+<p><strong>⏱ Duration:</strong> 60 Minutes</p>
+
+<p><strong>📄 File Type:</strong> PowerPoint (.pptx)</p>
+
+<p><strong>📝 Description:</strong> Covers the evolution of Artificial Intelligence from its origin to modern AI.</p>
+
+<div class="button-group">
+
+<a href="presentations/History of AI by Anshuman.pptx" target="_blank" class="btn">👁 View PPT</a>
+
+<a href="presentations/History of AI by Anshuman.pptx" download class="btn">⬇ Download</a>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+<img src="assets/images/hoai-thumbnail.png" class="ppt-image" alt="HOAI">
+<h2>🤖 HOAI</h2>
+
+<span class="status completed">✅ Completed</span>
+
+<br>
+
+<span class="badge">Artificial Intelligence</span>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p><strong>👨‍🎓 Student:</strong> Prateek Mishra</p>
+
+<p><strong>📅 Date:</strong> 3 August 2026</p>
+
+<p><strong>📖 Category:</strong> Artificial Intelligence</p>
+
+<p><strong>⏱ Duration:</strong> 60 Minutes</p>
+
+<p><strong>📄 File Type:</strong> PowerPoint (.pptx)</p>
+
+<p><strong>📝 Description:</strong> A presentation on the History of Artificial Intelligence with important milestones and developments.</p>
+
+<div class="button-group">
+
+<a href="presentations/HOAI by Prateek.pptx" target="_blank" class="btn">👁 View PPT</a>
+
+<a href="presentations/HOAI by Prateek.pptx" download class="btn">⬇ Download</a>
+
+</div>
+</div>
+
+<div class="card">
+<img src="assets/images/nature-environment-thumbnail.png" class="ppt-image" alt="Nature of Environment">
+<h2>🌍 Nature of Environment</h2>
+
+<span class="status completed">✅ Completed</span>
+
+<br>
+
+<span class="badge">Artificial Intelligence</span>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p><strong>👨‍🎓 Student:</strong> Anshuman Tiwari</p>
+
+<p><strong>📅 Date:</strong> 31 July 2026</p>
+
+<p><strong>⭐ Difficulty:</strong> Beginner</p>
+
+<p><strong>⏱ Duration:</strong> 60 Minutes</p>
+
+<p><strong>📄 File Type:</strong> PowerPoint (.pptx)</p>
+
+<p><strong>📝 Description:</strong> Explains different AI environments and how intelligent agents interact with them.</p>
+
+<div class="button-group">
+
+<a href="presentations/Nature of Environment by Anshuman.pptx" target="_blank" class="btn">👁 View PPT</a>
+
+<a href="presentations/Nature of Environment by Anshuman.pptx" download class="btn">⬇ Download</a>
+
+</div>
+</div>
+
+
+
+<div class="card">
+<img src="assets/images/problem-solving-agents-thumbnail.jpeg" class="ppt-image" alt="Problem Solving Agents">
+<h2>🧠 Problem Solving Agents</h2>
+
+<span class="status completed">✅ Completed</span>
+
+<br>
+
+<span class="badge">Intelligent Agents</span>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<p><strong>👨‍🎓 Student:</strong> Sonam Kushwaha</p>
+
+<p><strong>📅 Date:</strong> 6 August 2026</p>
+
+<p><strong>📖 Category:</strong> Intelligent Agents</p>
+
+<p><strong>⏱ Duration:</strong> 60 Minutes</p>
+
+<p><strong>📄 File Type:</strong> PowerPoint (.pptx)</p>
+
+<p><strong>📝 Description:</strong> Explains how AI problem-solving agents search, reason, and make decisions to achieve specific goals.</p>
+
+<div class="button-group">
+
+<a href="presentations/Problem Solving Agents by Sonam Kushwaha.pptx" target="_blank" class="btn">👁 View PPT</a>
+
+<a href="presentations/Problem Solving Agents by Sonam Kushwaha.pptx" download class="btn">⬇ Download</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

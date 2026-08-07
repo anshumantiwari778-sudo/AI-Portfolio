@@ -1,0 +1,154 @@
+.overview{
+padding:30px;
+}
+
+.overview h2{
+margin-bottom:20px;
+color:#1E3A8A;
+}
+
+.overview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.overview-card{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.overview-card:hover{
+transform:translateY(-8px);
+}
+
+.overview-card h3{
+font-size:40px;
+}
+
+.overview-card h2{
+color:#2563EB;
+margin:10px 0;
+}
+
+.activity{
+padding:30px;
+}
+
+.activity-box{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+line-height:2;
+}
+.schedule{
+padding:30px;
+}
+.quick-actions{
+padding:30px;
+}
+.overview{
+padding:30px;
+}
+
+.overview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.overview-card{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.overview-card:hover{
+transform:translateY(-8px);
+}
+.status{
+display:inline-block;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+margin:10px 0;
+}
+
+.completed{
+background:#22C55E;
+color:white;
+}
+
+.ongoing{
+background:#F59E0B;
+color:white;
+}
+.progress{
+background:#E5E7EB;
+height:10px;
+border-radius:20px;
+margin:12px 0;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:100%;
+background:linear-gradient(90deg,#2563EB,#7C3AED);
+}
+.badge{
+display:inline-block;
+background:#DBEAFE;
+color:#1E3A8A;
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+margin:8px 0;
+}
+.ppt-image{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
+}
+.card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(37,99,235,0.25);
+}
+
+.card h2{
+    color:#1E3A8A;
+    margin-top:10px;
+}
+
+.card p{
+    margin:8px 0;
+    color:#475569;
+}
+.button-group{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
