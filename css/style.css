@@ -152,3 +152,83 @@ margin-bottom:15px;
     gap:10px;
     flex-wrap:wrap;
 }
+/* ===== Statistics Section ===== */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:60px 20px;
+    background:#f5f8ff;
+}
+
+.stat-card{
+    background:#ffffff;
+    width:220px;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+.stat-card:hover{
+    transform:translateY(-10px);
+}
+
+.stat-card h2{
+    color:#2563eb;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#555;
+    font-size:18px;
+    font-weight:600;
+}
+/* ===== Featured Presentations ===== */
+
+.featured{
+    padding:70px 20px;
+    background:#ffffff;
+}
+
+.featured h2{
+    text-align:center;
+    font-size:36px;
+    color:#2563eb;
+    margin-bottom:40px;
+}
+
+.feature-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.feature-card{
+    width:300px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+}
+
+.feature-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.feature-card h3{
+    text-align:center;
+    padding:20px;
+    color:#1e3a8a;
+}
