@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI & Data Science Forum</title>
-
-<link rel="stylesheet" href="css/style.css">
+<title>Faculty Login | AI & Data Science Forum</title>
 
 <style>
 
@@ -21,218 +16,278 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#F8FAFC;
-}
 
-header{
-background:linear-gradient(135deg,#2563EB,#7C3AED);
-padding:20px 8%;
+height:100vh;
+
 display:flex;
-justify-content:space-between;
+
+justify-content:center;
+
 align-items:center;
-color:white;
-box-shadow:0 10px 30px rgba(37,99,235,.3);
+
+min-height: 100vh;
+margin: 0;
+
+background:
+radial-gradient(circle at top left,#3B82F6 0%,transparent 35%),
+radial-gradient(circle at bottom right,#7C3AED 0%,transparent 35%),
+linear-gradient(135deg,#050816,#0F172A,#111827);
+position:relative;
+background-size:400% 400%;
+
+animation:bgMove 10s infinite alternate;
+
+overflow:hidden;
+
 }
 
-.logo{
-font-size:28px;
-font-weight:bold;
+@keyframes bgMove{
+
+0%{background-position:left;}
+
+100%{background-position:right;}
+
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:600;
-transition:.3s;
+.login-box{
+transform:translateX(35px);
+margin:auto;
+left:10px;
+position:relative;
+z-index:10;
+width:420px;
+padding:45px;
+border-radius:28px;
+
+background:rgba(15,23,42,.75);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 30px rgba(59,130,246,.35),
+0 0 60px rgba(124,58,237,.18);
+
+transition:.4s;
+margin:auto;
 }
 
-nav a:hover{
-color:#FFD700;
+.login-box:hover{
+transform:translateY(-6px);
+box-shadow:
+0 0 45px rgba(59,130,246,.55),
+0 0 90px rgba(124,58,237,.35);
 }
 
-.hero{
-padding:80px 8%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:50px;
+h1{
+
+    color:#ffffff;
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    text-shadow:0 0 15px rgba(59,130,246,.8);
+    margin-bottom:10px;
 }
 
-.hero-text{
-flex:1;
+p{
+    color:#dbeafe;
+    text-align:center;
 }
 
-.hero-text h1{
-font-size:52px;
-color:#1E3A8A;
-margin-bottom:20px;
-}
 
-.hero-text p{
-font-size:20px;
-color:#475569;
+.subtitle{
+
 margin-bottom:35px;
-line-height:1.7;
+
+color:#CBD5E1;
+
 }
 
-.btn{
-display:inline-block;
-padding:15px 30px;
-background:linear-gradient(135deg,#2563EB,#7C3AED);
-color:white;
-text-decoration:none;
+input{
+
+width:100%;
+
+padding:16px;
+
+margin:12px 0;
+
+border:none;
+
 border-radius:12px;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+padding:16px;
+
+margin-top:20px;
+
+border:none;
+
+border-radius:12px;
+
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+
+color:white;
+
+font-size:17px;
+
 font-weight:bold;
+
+cursor:pointer;
+
 transition:.3s;
+
 }
 
-.btn:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 20px rgba(37,99,235,.3);
+button:hover{
+
+transform:translateY(-4px);
+
+}
+.bg-circle{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+opacity:.45;
+animation:float 8s ease-in-out infinite;
 }
 
-.hero-image{
-flex:1;
-text-align:center;
+.c1{
+width:300px;
+height:300px;
+background:#3B82F6;
+top:-80px;
+left:-80px;
 }
 
-.hero-image img{
-width:380px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.2);
+.c2{
+width:250px;
+height:250px;
+background:#7C3AED;
+right:-70px;
+bottom:-70px;
+animation-delay:2s;
 }
 
+.c3{
+width:180px;
+height:180px;
+background:#06B6D4;
+top:45%;
+left:15%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-30px);}
+100%{transform:translateY(0px);}
+}
+
+.login-box{
+    
+position:relative;
+z-index:10;
+}
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+
+background-size:40px 40px;
+
+animation:gridMove 10s linear infinite;
+
+pointer-events:none;
+}
+
+@keyframes gridMove{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(40px);
+}
+}
 </style>
 
 </head>
 
 <body>
-  <header>
 
-<div class="logo">
-🤖 AI & DS Forum
-</div>
+<div class="bg-circle c1"></div>
+<div class="bg-circle c2"></div>
+<div class="bg-circle c3"></div>
 
-<nav>
+<div class="login-box">
 
-<a href="index.html">Home</a>
+<h1>🤖 AI & Data Science Forum</h1>
 
-<a href="dashboard.html">Dashboard</a>
+<p style="font-size:18px;color:#cbd5e1;">
+Secure Faculty Authentication
+</p>
 
-<a href="presentations.html">Presentations</a>
+<p class="subtitle">
 
-<a href="projects.html">Projects</a>
-
-<a href="gallery.html">Gallery</a>
-
-<a href="events.html">Events</a>
-
-<a href="login.html">Login</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>AI & Data Science Forum</h1>
-
-<p>
-
-Empowering students through Artificial Intelligence, Data Science, Machine Learning and Research under the guidance of <strong>Prof. Namita Tiwari</strong>.
+Faculty Login Portal
 
 </p>
 
-<a href="dashboard.html" class="btn">Explore Dashboard</a>
+<input type="text" id="username" placeholder="Username" onkeypress="enterLogin(event)">
+
+<input type="password" id="password" placeholder="Password" onkeypress="enterLogin(event)">
+
+<button onclick="login()">
+
+Faculty Login
+
+</button>
 
 </div>
 
-<div class="hero-image">
+<script>
 
-<img src="assets/images/professor.jpg" alt="Prof. Namita Tiwari">
+function login(){
 
-</div>
+let user=document.getElementById("username").value;
 
-</section>
-<section class="stats">
-    <div class="stat-card">
-        <h2>100+</h2>
-        <p>Students</p>
-    </div>
+let pass=document.getElementById("password").value;
 
-    <div class="stat-card">
-        <h2>20+</h2>
-        <p>Presentations</p>
-    </div>
+if(user==="admin" && pass==="1234"){
 
-    <div class="stat-card">
-        <h2>15+</h2>
-        <p>Projects</p>
-    </div>
+window.location="dashboard.html";
 
-    <div class="stat-card">
-        <h2>10+</h2>
-        <p>Events</p>
-    </div>
-    <section class="featured">
-    <h2>Featured Presentations</h2>
+}
 
-    <div class="feature-grid">
+else{
 
-        <div class="feature-card">
-            <img src="assets/images/history-ai-thumbnail.jpeg" alt="">
-            <h3>History of AI</h3>
-        </div>
+alert("Invalid Username or Password");
 
-        <div class="feature-card">
-            <img src="assets/images/nature-environment-thumbnail.png" alt="">
-            <h3>Nature of Environment</h3>
-        </div>
+}
 
-        <div class="feature-card">
-            <img src="assets/images/problem-solving-agents-thumbnail.jpeg" alt="">
-            <h3>Problem Solving Agents</h3>
-        </div>
+}
+function enterLogin(event){
+    if(event.key === "Enter"){
+        login();
+    }
+}
 
-    </div>
-</section>
-</section>
+</script>
 
-<section class="overview">
+</body>
 
-<h2 style="text-align:center;color:#1E3A8A;margin-bottom:40px;">
-📊 AI & Data Science Forum Overview
-</h2>
-
-<div class="overview-grid">
-
-<div class="overview-card">
-<h3>📚</h3>
-<h2>25+</h2>
-<p>Presentations</p>
-</div>
-
-<div class="overview-card">
-<h3>💻</h3>
-<h2>12+</h2>
-<p>Projects</p>
-</div>
-
-<div class="overview-card">
-<h3>🎓</h3>
-<h2>120+</h2>
-<p>Students</p>
-</div>
-
-<div class="overview-card">
-<h3>📅</h3>
-<h2>8+</h2>
-<p>Events</p>
-</div>
-
-</div>
-
-</section>
+</html>

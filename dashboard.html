@@ -4,177 +4,533 @@
 <link rel="stylesheet" href="css/style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI & Data Science Forum - Admin Dashboard</title>
-
+<title>Dashboard | AI & Data Science Forum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:'Poppins', sans-serif;
 }
 
 body{
-    background:#f4f7fc;
     display:flex;
+    background:#050816;
+    color:white;
 }
 
+/* Sidebar */
+
 .sidebar{
-    width:250px;
+    width:280px;
     height:100vh;
-    background: linear-gradient(180deg, #0F172A, #1E3A8A);
-    color:white;
     position:fixed;
     left:0;
     top:0;
-    padding:25px;
+    padding:30px;
+    background:linear-gradient(180deg,#081226,#112a55);
+    border-right:1px solid rgba(255,255,255,.08);
 }
 
-.sidebar h2{
-    letter-spacing:1px;
-    margin-bottom:5px;
-    margin-bottom:30px;
+.logo{
+    font-size:60px;
+    color:#4FC3F7;
+    text-shadow:0 0 25px rgba(79,195,247,.7);
+    text-align:center;
+    margin-bottom:40px;
 }
 
-.sidebar a{
-    display:block;
-    color:white;
+.logo h2{
+    margin-top:12px;
+    font-size:30px;
+}
+
+.logo p{
+    color:#9ec9ff;
+    margin-top:8px;
+    font-size:14px;
+}
+
+nav{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+nav a{
     text-decoration:none;
-    padding:12px;
-    margin:10px 0;
-    border-radius:10px;
-    transition:.3s;
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    transition:.35s;
 }
 
-.sidebar a:hover{
-    background:rgba(255,255,255,.2);
+nav a:hover,
+nav .active{
+    background:#1b4fff;
+    box-shadow:0 0 25px rgba(0,170,255,.45);
 }
+
+/* Main */
 
 .main{
-    margin-left:250px;
-    width:calc(100% - 250px);
+    margin-left:280px;
+    width:calc(100% - 280px);
+    padding:40px;
 }
 
-header{
-    background:linear-gradient(135deg,#2563EB,#7C3AED);
-    padding:35px;
-    border-radius:0 0 20px 20px;
-    color:white;
-    box-shadow:0 10px 30px rgba(37,99,235,.3);
-}
+/* Hero */
 
-header h1{
-    font-size:34px;
-}
-
-header p{
-    margin-top:10px;
-}
-.profile{
+.hero{
+    background:linear-gradient(135deg,#071a40,#0f5dff);
+    border-radius:28px;
+    padding:60px;
     display:flex;
+    justify-content:space-between;
     align-items:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:30px;
+    background:#0ea5ff;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#53d8ff;
+}
+
+.hero p{
+    margin:25px 0;
+    font-size:22px;
+    color:#d7e9ff;
+}
+
+.buttons{
+    display:flex;
     gap:20px;
+}
+
+.buttons button{
+    border:none;
+    padding:16px 35px;
+    border-radius:16px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.buttons button:first-child{
+    background:#21b6ff;
+    color:white;
+}
+
+.buttons button:last-child{
     background:white;
-    margin:25px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    color:#111827;
 }
 
-.profile img{
-    width:110px;
-    height:110px;
+.hero-image{
+    width:180px;
+    height:180px;
     border-radius:50%;
-    object-fit:cover;
-    border:4px solid #2563EB;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+    background:rgba(255,255,255,.08);
 }
-
 .stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    margin:25px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:40px;
+background:transparent;
 }
 
-.box{
-    background:linear-gradient(135deg,#2563EB,#7C3AED);
-    color:white;
-    text-align:center;
-    padding:25px;
-    border-radius:15px;
-    transition:.3s;
+.card{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:30px;
+text-align:center;
+transition:.35s;
 }
 
-.box:hover{
-    transform:translateY(-8px);
+.card h2{
+font-size:42px;
+margin-bottom:15px;
 }
 
-.box h2{
-    font-size:36px;
+.card h1{
+font-size:42px;
+margin-bottom:10px;
+color:#53d8ff;
 }
 
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-size:15px;
-    transition:.3s;
+.card p{
+color:#d5e6ff;
 }
 
-.nav-links a:hover{
-    color:#FFD700;
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 15px 45px rgba(0,170,255,.35);
 }
-.portal-subtitle{
-    color:#CBD5E1;
-    font-size:14px;
-    text-align:center;
-    margin-bottom:30px;
+.assistant{
+margin-top:50px;
 }
+
+.assistant h2{
+font-size:34px;
+margin-bottom:20px;
+color:#53d8ff;
+}
+
+.assistant-box{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+padding:35px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.12);
+}
+
+.assistant-box h3{
+font-size:28px;
+margin-bottom:18px;
+}
+
+.assistant-box p{
+color:#d6e6ff;
+margin-bottom:20px;
+}
+
+.assistant-box ul{
+margin-left:20px;
+line-height:2;
+color:white;
+}
+
+.assistant-box button{
+margin-top:25px;
+padding:15px 30px;
+border:none;
+border-radius:14px;
+background:#1fa7ff;
+color:white;
+font-size:17px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+.assistant-box button:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,170,255,.45);
+}
+.overview{
+margin-top:60px;
+}
+
+.overview h2{
+font-size:34px;
+color:#58d8ff;
+margin-bottom:25px;
+}
+
+.overview-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.overview-card{
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.12);
+transition:.35s;
+backdrop-filter:blur(16px);
+}
+
+.overview-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(0,170,255,.35);
+}
+
+.overview-card h3{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.overview-card h1{
+font-size:42px;
+color:#4fd1ff;
+margin:10px 0;
+}
+
+.overview-card p{
+color:#ffffff;
+font-size:16px;
+}
+.activity{
+margin-top:60px;
+grid-column:1/-1;
+}
+
+.activity h2{
+font-size:34px;
+color:#58d8ff;
+margin-bottom:25px;
+}
+
+.activity-card{
+width:100%;
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(16px);
+}
+
+.activity-card p{
+font-size:18px;
+color:white;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.activity-card p:last-child{
+border:none;
+}
+.schedule{
+margin-top:60px;
+grid-column:1/-1;
+}
+
+.schedule h2{
+font-size:34px;
+color:#58d8ff;
+margin-bottom:25px;
+}
+
+.schedule-card{
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(16px);
+}
+
+.schedule-item{
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.schedule-item:last-child{
+border:none;
+}
+
+.schedule-item span{
+color:#66e3ff;
+font-weight:700;
+font-size:18px;
+}
+
+.schedule-item p{
+color:white;
+margin-top:8px;
+font-size:18px;
+}
+.announcements{
+margin-top:60px;
+grid-column:1/-1;
+}
+
+.announcements h2{
+font-size:34px;
+color:#58d8ff;
+margin-bottom:25px;
+}
+
+.announcement-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.announcement-card{
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(16px);
+transition:.3s;
+}
+
+.announcement-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(59,130,246,.35);
+}
+
+.announcement-card h3{
+color:#58d8ff;
+margin-bottom:15px;
+}
+
+.announcement-card p{
+color:white;
+line-height:1.6;
+}
+.live-time{
+margin-top:20px;
+font-size:18px;
+color:#9ee8ff;
+font-weight:600;
+}
+.hero-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero-image img{
+    width:420px;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    animation:float 4s ease-in-out infinite;
+    filter:drop-shadow(0 0 35px rgba(0,255,255,.8));
+}
+
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
 </style>
 
 </head>
 
 <body>
-   
-    <div class="sidebar">
+<div class="sidebar">
 
-<h2>🤖 AI & DS Forum</h2>
-<p class="portal-subtitle">Management Portal</p>
+<div class="logo">
+    <i class="fas fa-brain"></i>
+    <h2>AI & DS Forum</h2>
+    <p>Faculty Management Portal</p>
+</div>
 
-<a href="dashboard.html">🏠 Dashboard</a>
-<a href="presentations.html">📚 Presentations</a>
-<a href="projects.html">💻 Projects</a>
-<a href="gallery.html">🖼 Gallery</a>
-<a href="events.html">📅 Events</a>
-<a href="announcements.html">📢 Announcements</a>
-<a href="team.html">👥 Team</a>
-<a href="settings.html">⚙ Settings</a>
-<a href="login.html">🚪 Logout</a>
+<nav>
+    <a href="dashboard.html" class="active">🏠 Dashboard</a>
+    <a href="presentations.html">📚 Presentations</a>
+    <a href="projects.html">💡 AI Projects</a>
+    <a href="gallery.html">🖼 Gallery</a>
+    <a href="events.html">📅 Events</a>
+    <a href="announcements.html">📢 Announcements</a>
+    <a href="team.html">👥 Team</a>
+    <a href="settings.html">⚙️ Settings</a>
+    <a href="index.html">🚪 Logout</a>
+</nav>
+
 
 </div>
 
 <div class="main">
 
-<header>
-    <h1>🤖 AI & Data Science Forum</h1>
-    <h2 style="font-weight:400;margin-top:8px;">
-    Management Portal
-    </h2>
-    <p>Managed by <strong>Prof. Namita Tiwari</strong></p>
-    <p>Welcome back, Prof. Namita Tiwari 👋</p>
-    <p>Your AI & Data Science Forum is ready to manage.</p>
-    <div style="margin-top:20px;
-background:rgba(255,255,255,.15);
-padding:15px;
-border-radius:12px;
-backdrop-filter:blur(10px);">
+<header class="hero">
+    <div class="hero-content">
+        <span class="badge">🚀 AI CONTROL CENTER</span>
 
-📢 <b>Welcome!</b><br>
+        <h1>
+            Welcome,
+            <span>Prof. Namita Tiwari</span>
+        </h1>
 
-Manage presentations, projects, events and announcements from one dashboard.
+        <p>
+            AI & Data Science Forum Management Dashboard
+        </p>
+        
+        <div class="live-time" id="liveTime"></div>
 
+        <div class="buttons">
+            <button>📚 Presentations</button>
+            <button>💡 AI Projects</button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+    <img src="assets/images/ai-brain.jpeg" alt="AI Brain">
 </div>
 </header>
+
+<section class="stats">
+
+    <div class="card">
+        <h2>👨‍🎓</h2>
+        <h1>150+</h1>
+        <p>Students</p>
+    </div>
+
+    <div class="card">
+        <h2>📚</h2>
+        <h1>35+</h1>
+        <p>Presentations</p>
+    </div>
+
+    <div class="card">
+        <h2>💡</h2>
+        <h1>25+</h1>
+        <p>AI Projects</p>
+    </div>
+
+    <div class="card">
+        <h2>🏆</h2>
+        <h1>12+</h1>
+        <p>Achievements</p>
+    </div>
+
+</section>
+
+<section class="assistant">
+
+<h2>🤖 AI Assistant</h2>
+
+<div class="assistant-box">
+
+<h3>Good Evening, Prof. Namita Tiwari 👋</h3>
+
+<p>
+Everything is running normally.
+</p>
+
+<ul>
+<li>✅ 35 Presentations Uploaded</li>
+<li>💡 18 AI Projects Available</li>
+<li>📅 12 Upcoming Events</li>
+<li>🟢 System Status: Online</li>
+</ul>
+
+<button>Open AI Assistant</button>
+
 <section class="overview">
 
 <h2>📊 Today's Overview</h2>
@@ -183,158 +539,130 @@ Manage presentations, projects, events and announcements from one dashboard.
 
 <div class="overview-card">
 <h3>📚</h3>
-<h2>4</h2>
-<p>Presentations</p>
+<h1>4</h1>
+<p>Presentations Today</p>
 </div>
 
 <div class="overview-card">
-<h3>💻</h3>
-<h2>5</h2>
-<p>Projects</p>
+<h3>💡</h3>
+<h1>2</h1>
+<p>Projects Submitted</p>
 </div>
 
 <div class="overview-card">
 <h3>📅</h3>
-<h2>5</h2>
-<p>Events</p>
+<h1>1</h1>
+<p>Upcoming Event</p>
 </div>
 
 <div class="overview-card">
-<h3>🖼</h3>
-<h2>0</h2>
-<p>Gallery Photos</p>
+<h3>🤖</h3>
+<h1>99%</h1>
+<p>AI System Health</p>
 </div>
-
-</div>
-
-</section>
 <section class="activity">
 
 <h2>📌 Recent Activity</h2>
 
-<div class="activity-box">
-
+<div class="activity-card">
 <p>✅ Nature of Environment presentation uploaded.</p>
-
 <p>✅ History of AI presentation added.</p>
-
 <p>✅ AI Environment Simulator project created.</p>
-
 <p>✅ Event Calendar updated.</p>
-
 <p>✅ Student Projects section added.</p>
-
 </div>
 
-</section>
 <section class="schedule">
 
 <h2>📅 Upcoming Schedule</h2>
 
-<div class="activity-box">
+<div class="schedule-card">
 
-<p>🟢 <b>10 Aug 2026</b> — Proportions and Logic — Divyanshi</p>
-
-<p>🟢 <b>11 Aug 2026</b> — Intelligent Agent and Environment — Akshara</p>
-
-<p>🟢 <b>12 Aug 2026</b> — AI Cryptography — Prabhat</p>
-
+<div class="schedule-item">
+<span>🟢 10 Aug 2026</span>
+<p>Proportions and Logic — Divyanshi</p>
 </div>
 
-</section>
-<section class="quick-actions">
-
-<h2>⚡ Quick Actions</h2>
-
-<div class="overview-grid">
-
-<div class="overview-card">
-<h3>📚</h3>
-<p>Add Presentation</p>
+<div class="schedule-item">
+<span>🟢 11 Aug 2026</span>
+<p>Intelligent Agent and Environment — Akshara</p>
 </div>
 
-<div class="overview-card">
-<h3>💻</h3>
-<p>Add Project</p>
-</div>
-
-<div class="overview-card">
-<h3>🖼</h3>
-<p>Upload Gallery</p>
-</div>
-
-<div class="overview-card">
-<h3>📅</h3>
-<p>Add Event</p>
+<div class="schedule-item">
+<span>🟢 12 Aug 2026</span>
+<p>AI Cryptography — Prabhat</p>
 </div>
 
 </div>
 
 </section>
-<div class="profile">
 
-    <img src="assets/images/professor.jpg" alt="Professor">
+</section>
+<section class="announcements">
 
-    <div>
-        <h2>Prof. Namita Tiwari</h2>
-        <p>Administrator</p>
-        <p>AI & Data Science Forum</p>
-    </div>
+<h2>📢 Latest Announcements</h2>
 
+<div class="announcement-grid">
+
+<div class="announcement-card">
+<h3>📚 New Presentation</h3>
+<p>Upload your AI presentation before 15 Aug 2026.</p>
 </div>
 
-<div class="stats">
-
-    <div class="box">
-        <h2>25</h2>
-        <p>Presentations</p>
-    </div>
-
-    <div class="box">
-        <h2>12</h2>
-        <p>Projects</p>
-    </div>
-
-    <div class="box">
-        <h2>8</h2>
-        <p>Events</p>
-    </div>
-
-    <div class="box">
-        <h2>120</h2>
-        <p>Students</p>
-    </div>
-    <div class="dashboard-grid">
-
-<div class="card">
-    <a href="presentations.html" style="text-decoration:none; color:inherit;">
-        📚
-        <h3>Student Presentations</h3>
-    </a>
+<div class="announcement-card">
+<h3>🏆 Innovation Challenge</h3>
+<p>Submit AI project ideas for the Annual Innovation Contest.</p>
 </div>
 
-<div class="card">
-    <a href="projects.html" style="text-decoration:none; color:inherit;">
-        💻
-        <h3>Student Projects</h3>
-    </a>
-</div>
-
-<div class="card">🖼<br><h3>Gallery</h3></div>
-
-<div class="card">📅<br><h3>Events</h3></div>
-
-<div class="card">📢<br><h3>Announcements</h3></div>
-
-<div class="card">👥<br><h3>Team Members</h3></div>
-
+<div class="announcement-card">
+<h3>🎓 Workshop</h3>
+<p>Machine Learning Workshop on 20 Aug 2026.</p>
 </div>
 
 </div>
+
+</section>
 </div>
-</div> <!-- closes .stats -->
 
-</div> <!-- closes .main -->
+</section>
 
+</div>
+
+</section>
+
+</div>
+
+<script>
+function updateTime(){
+const now = new Date();
+
+const options = {
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+};
+
+const date = now.toLocaleDateString("en-IN", options);
+const time = now.toLocaleTimeString("en-IN");
+
+document.getElementById("liveTime").innerHTML =
+"📅 " + date + " &nbsp;&nbsp; ⏰ " + time;
+}
+
+updateTime();
+setInterval(updateTime,1000);
+</script>
+
+
+
+
+
+
+
+
+
+
+   
 </body>
 </html>

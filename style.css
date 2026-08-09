@@ -198,3 +198,44 @@ font-size:40px;
 color:#2563EB;
 margin:10px 0;
 }
+/* Team Page */
+.container{
+    width:90%;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#101c3d;
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,170,255,.25);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 35px rgba(0,170,255,.5);
+}
+
+.card img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #22D3EE;
+    margin-bottom:15px;
+}
+
+.card h2{
+    color:#22D3EE;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin:8px 0;
+}
